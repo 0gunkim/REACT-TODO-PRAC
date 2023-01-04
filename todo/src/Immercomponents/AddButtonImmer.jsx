@@ -1,12 +1,16 @@
 import React from 'react';
 import { nanoid } from 'nanoid'
 
-export const AddButton = ({dispatch}) => {
+export const AddButton = (props) => {
     const id = nanoid()
+    const {todo, setTodo} = props;
+    console.log(todo)
     const addHandlerButton = () => {
-        const title = prompt(`오늘의 할일은?`);
+        const ff = prompt(`오늘의 할일은?`);
         const time = prompt(`몇시 (숫자만 입력)`);
-        dispatch({type: 'ADD', title, time, id})
+        setTodo(() => (
+            [...todo, {title: ff, time ,id}]
+        ))
     };
     return(
         <div>

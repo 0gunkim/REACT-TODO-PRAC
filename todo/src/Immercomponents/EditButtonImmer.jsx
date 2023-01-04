@@ -1,11 +1,16 @@
 import React from 'react';
 
-export const EditButton = ({dispatch}) => {
+export const EditButton = (props) => {
     const editHandlerButton = () => {
+        const {todo, setTodo} = props;
         const editList = prompt(`몇시를 수정하고 싶나요? (숫자만 입력해주세요)`);
         const current = prompt(`수정하고싶은 일을 적어주세요`);
-        dispatch({type: 'UPDATE', editList, current})
-        
+        setTodo(todo.map((i) => {
+            if(i.time === editList){
+                return {...i, title: current}
+            }
+           return i;
+        }))
     };
     return(
         <div>

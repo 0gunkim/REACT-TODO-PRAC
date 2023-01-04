@@ -1,12 +1,13 @@
-import React, { useReducer } from 'react';
-import todoReducer from '../reducer/todoReducer';
+import React from 'react';
+import { useState } from 'react';
 import { initialTodo } from '../util/initialTodo';
-import { AddButton } from '../components/AddButton';
-import { EditButton } from '../components/EditButton';
-import { DeleteButton } from '../components/DeleteButton';
+import { DeleteButtonImmer } from '../Immercomponents/DeleteButtonImmer';
 import styled from 'styled-components';
+import { EditButton } from '../Immercomponents/EditButtonImmer';
+import { AddButton } from '../Immercomponents/AddButtonImmer';
 export default function TodoList() {
-    const [todo, dispatch] = useReducer(todoReducer,initialTodo);
+    const [todo, setTodo] = useState(initialTodo)
+    console.log(todo)
     return (
         <STContainer>
             {todo.map((list)=>{
@@ -21,9 +22,9 @@ export default function TodoList() {
                 
                 )})}
                 <STButton>
-                <AddButton todo={todo} dispatch={dispatch} />
-                <EditButton todo={todo} dispatch={dispatch} />
-                <DeleteButton todo={todo} dispatch={dispatch} />
+                <AddButton todo={todo} setTodo={setTodo} />
+                <EditButton todo={todo} setTodo={setTodo} />
+                <DeleteButtonImmer todo={todo} setTodo={setTodo} />
                 </STButton>
                 
         </STContainer>
