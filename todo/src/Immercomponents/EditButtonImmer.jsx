@@ -1,20 +1,18 @@
 import React from 'react';
-
-export const EditButton = (props) => {
+import { Button } from '../elem/Button';
+export const EditButtonImmer = (props) => {
     const editHandlerButton = () => {
-        const {todo, setTodo} = props;
+        const { updateTodo} = props;
         const editList = prompt(`몇시를 수정하고 싶나요? (숫자만 입력해주세요)`);
         const current = prompt(`수정하고싶은 일을 적어주세요`);
-        setTodo(todo.map((i) => {
-            if(i.time === editList){
-                return {...i, title: current}
-            }
-           return i;
-        }))
+        updateTodo((todo)=>{
+            const todoFind = todo.find((m)=>(m.time === editList))
+            todoFind.title = current
+        })
     };
     return(
         <div>
-            <button onClick={editHandlerButton}>수정하기</button>
+            <Button onClick={editHandlerButton} text='수정'></Button>
         </div>
     );
 };

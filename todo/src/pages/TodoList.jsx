@@ -6,7 +6,7 @@ import { EditButton } from '../components/EditButton';
 import { DeleteButton } from '../components/DeleteButton';
 import styled from 'styled-components';
 export default function TodoList() {
-    const [todo, dispatch] = useReducer(todoReducer,initialTodo);
+    const [todo, dispatch] = useReducer(todoReducer, initialTodo);
     return (
         <STContainer>
             {todo.map((list)=>{
@@ -21,9 +21,9 @@ export default function TodoList() {
                 
                 )})}
                 <STButton>
-                <AddButton todo={todo} dispatch={dispatch} />
-                <EditButton todo={todo} dispatch={dispatch} />
-                <DeleteButton todo={todo} dispatch={dispatch} />
+                <AddButton text='추가' dispatch={dispatch} />
+                <EditButton dispatch={dispatch} />
+                <DeleteButton dispatch={dispatch} />
                 </STButton>
                 
         </STContainer>

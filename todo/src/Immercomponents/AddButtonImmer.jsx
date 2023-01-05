@@ -1,20 +1,19 @@
 import React from 'react';
 import { nanoid } from 'nanoid'
-
-export const AddButton = (props) => {
+import {Button} from '../elem/Button';
+export const AddButtonImmer = (props) => {
     const id = nanoid()
-    const {todo, setTodo} = props;
-    console.log(todo)
+    const { updateTodo } = props;
     const addHandlerButton = () => {
-        const ff = prompt(`오늘의 할일은?`);
+        const title = prompt(`오늘의 할일은?`);
         const time = prompt(`몇시 (숫자만 입력)`);
-        setTodo(() => (
-            [...todo, {title: ff, time ,id}]
-        ))
+    updateTodo((todo)=>{
+        todo.push({title, time, id});
+    })
     };
     return(
         <div>
-        <button onClick={addHandlerButton}>추가</button>
+        <Button onClick={addHandlerButton} text='추가'></Button>
         </div>
     );
 };

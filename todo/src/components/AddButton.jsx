@@ -1,7 +1,7 @@
 import React from 'react';
 import { nanoid } from 'nanoid'
 
-export const AddButton = ({dispatch}) => {
+export const AddButton = ({dispatch, text}) => {
     const id = nanoid()
     const addHandlerButton = () => {
         const title = prompt(`오늘의 할일은?`);
@@ -10,7 +10,7 @@ export const AddButton = ({dispatch}) => {
     };
     return(
         <div>
-        <button onClick={addHandlerButton}>추가</button>
+        <button onClick={addHandlerButton}>{`${text}`}</button>
         </div>
     );
 };
