@@ -5,6 +5,7 @@ import { DeleteButtonImmer } from '../Immercomponents/DeleteButtonImmer';
 import { EditButtonImmer } from '../Immercomponents/EditButtonImmer';
 import { AddButtonImmer } from '../Immercomponents/AddButtonImmer';
 import styled from 'styled-components';
+import { InputForm } from '../Molecule/inputForm';
 
 export default function TodoListImmer() {
     const [todo, updateTodo] = useImmer(initialTodo)
@@ -27,7 +28,7 @@ export default function TodoListImmer() {
                 <EditButtonImmer todo={todo} updateTodo={updateTodo} />
                 <DeleteButtonImmer todo={todo} updateTodo={updateTodo} />
                 </STButton>
-                
+        <InputForm></InputForm>  
         </STContainer>
     );
 }
